@@ -24,6 +24,25 @@ body {
   z-index: 1;
 }
 
+h1 {
+  font-size: 5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 4rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+p {
+  font-size: 2rem;
+}
+
 .controls {
   display: block;
   position:relative;
@@ -31,19 +50,27 @@ body {
 
 .txt1 {
   height: 1000px;
-  background: #f0f0f0;
 }
 
 .txt2 {
   height: 100vh;
-  background: #f0f0f0;
 }
 
 .txt3 {
-  height: 1000vh;
-    background: #f0f0f0;
-  }
+  height: 200vh;
+}
 
+.txt4 {
+  height: 100vh;
+}
+
+.txt5 {
+  height: 100vh;
+}
+
+.txt6 {
+  height: 100vh;
+}
 
 /* Remove scrollbar */
 ::-webkit-scrollbar {

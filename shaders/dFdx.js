@@ -37,7 +37,7 @@ varying vec3 vPosition;
 varying vec3 vNormal;
 
 void main() {
-  vec3 light = vec3(7.0, 7.0, 7.0);
+  vec3 light = vec3(-7.0, -7.0, 7.0);
   // mover la luz en el tiempo en forma de circulo
   
   vec3 distanceFromEveryPointToLight = normalize(light - vPosition); 
