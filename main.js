@@ -1,7 +1,6 @@
 import "./style.css";
 
 import * as THREE from "three";
-import dFdx from "./shaders/dFdx.js";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -17,12 +16,62 @@ const camera = new THREE.PerspectiveCamera(75, aspectRatio, 0.1, 1000);
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#canvas"),
+  antialias: true,
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 const material = new THREE.ShaderMaterial({
-  vertexShader: dFdx.vertexShader,
-  fragmentShader: dFdx.fragmentShader,
+  vertexShader: `
+varying vec2 vUv;
+varying vec3 vPosition;
+varying vec3 vNormal;
+
+uniform float uTime;
+
+void main() {
+  vUv = uv;
+  vPosition = position;
+
+  vPosition.z = sin(pow(vPosition.x, 2.0) + pow(vPosition.y, 2.0) + uTime * 0.1) * 0.4;
+
+  // Modo 1 calcular las tangentes y obteniendo el producto cruz 
+  // vec3 xTangent = vec3(1.0, 0.0, 0.0);
+  // vec3 yTangent = vec3(0.0, 1.0, 0.0);
+  //
+  // xTangent.z = 2.0 * vPosition.x * cos(pow(vPosition.x, 2.0) + pow(vPosition.y, 2.0) + uTime * 0.1) * 0.4;
+  // yTangent.z = 2.0 * vPosition.y * cos(pow(vPosition.x, 2.0) + pow(vPosition.y, 2.0) + uTime * 0.1) * 0.4;
+
+  // Modo 2 central difference method
+  // float eps = 0.01; // Small epsilon value
+  // vec3 xTangent = vec3(eps, 0.0, vPosition.z) - vec3(0.0, 0.0, vPosition.z);
+  // vec3 yTangent = vec3(0.0, eps, vPosition.z) - vec3(0.0, 0.0, vPosition.z);
+  // vNormal = normalize(cross(xTangent, yTangent));
+
+  vNormal = normal;
+
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(vPosition, 1.0);
+}
+`,
+  fragmentShader: `
+  
+varying vec2 vUv;
+varying vec3 vPosition;
+varying vec3 vNormal;
+
+void main() {
+  vec3 light = vec3(-7.0, -7.0, 7.0);
+  // mover la luz en el tiempo en forma de circulo
+  
+  vec3 distanceFromEveryPointToLight = normalize(light - vPosition); 
+
+  // Modo 3 calcular las derivadas parciales y normalizar el producto cruz por cada fragmento
+  // vec3 vNormal = normalize(cross(dFdx(vPosition), dFdy(vPosition)));
+
+  float lightIntensity = dot (vNormal, distanceFromEveryPointToLight) * 0.8;  
+  gl_FragColor = vec4(vec3(lightIntensity), 1.0);
+}
+`,
+
   uniforms: {
     uTime: { value: 0.0 },
   },
@@ -122,14 +171,16 @@ camera.position.y = -9;
 gsap.registerPlugin(ScrollTrigger);
 
 let capybara;
-var capybaraMaterial = new THREE.MeshPhysicalMaterial({ color: 0xbf743d });
+let capybaraMaterial = new THREE.MeshPhysicalMaterial({ color: 0xbf743d });
+
+const boundaries = window.innerWidth >= 1280 ? "top top" : "top center";
 
 ScrollTrigger.create({
   trigger: ".txt2",
-  start: "top top",
+  start: boundaries,
   end: "bottom bottom",
   pin: true,
-  markers: true,
+  // markers: true,
   onEnter: () => {
     gsap.to(camera.rotation, {
       duration: 1,
@@ -165,9 +216,9 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
   trigger: ".txt3",
-  start: "top top",
+  start: boundaries,
   end: "bottom bottom",
-  markers: true,
+  // markers: true,
   pin: true,
   onEnter: () => {
     gsap.to(camera.rotation, {
@@ -215,9 +266,9 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
   trigger: ".txt4",
-  start: "top top",
+  start: boundaries,
   end: "bottom bottom",
-  markers: true,
+  // markers: true,
   pin: true,
   onEnter: () => {
     mesh.material = material;
@@ -258,9 +309,9 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
   trigger: ".txt5",
-  start: "top top",
+  start: boundaries,
   end: "bottom bottom",
-  markers: true,
+  // markers: true,
   pin: true,
   onEnter: () => {
     mesh.material = marioMaterial;
@@ -272,9 +323,9 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
   trigger: ".txt6",
-  start: "top top",
+  start: boundaries,
   end: "bottom bottom",
-  markers: true,
+  // markers: true,
   pin: true,
   onEnter: () => {
     scene.remove(mesh);
@@ -325,7 +376,7 @@ ScrollTrigger.create({
   onLeaveBack: () => {
     scene.add(mesh);
     scene.remove(capybara);
-    
+
     gsap.to(camera.rotation, {
       duration: 1,
       // 360 degree rotation
