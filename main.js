@@ -126,7 +126,7 @@ var capybaraMaterial = new THREE.MeshPhysicalMaterial({ color: 0xbf743d });
 
 ScrollTrigger.create({
   trigger: ".txt2",
-  start: "top center",
+  start: "top top",
   end: "bottom bottom",
   pin: true,
   markers: true,
@@ -165,7 +165,7 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
   trigger: ".txt3",
-  start: "top center",
+  start: "top top",
   end: "bottom bottom",
   markers: true,
   pin: true,
@@ -215,7 +215,7 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
   trigger: ".txt4",
-  start: "top center",
+  start: "top top",
   end: "bottom bottom",
   markers: true,
   pin: true,
@@ -258,7 +258,7 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
   trigger: ".txt5",
-  start: "top center",
+  start: "top top",
   end: "bottom bottom",
   markers: true,
   pin: true,
@@ -272,7 +272,7 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
   trigger: ".txt6",
-  start: "top center",
+  start: "top top",
   end: "bottom bottom",
   markers: true,
   pin: true,

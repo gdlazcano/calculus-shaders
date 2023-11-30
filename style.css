@@ -10,6 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 10px;
 }
 
 #canvas {
@@ -22,6 +23,22 @@ body {
   display: block;
   margin: 0 auto;
   z-index: 1;
+}
+
+@media (min-width: 1280px) {
+  #canvas {
+    width:50vw !important;
+    height: 100dvh !important;
+    height: 100vh;
+  }
+
+    #app {
+      width:50vw !important;
+      height: 100dvh !important;
+      height: 100vh;
+      margin-top:0 !important;
+      margin-left:50vw !important; 
+    }
 }
 
 h1 {
@@ -53,7 +70,7 @@ p {
 }
 
 .txt2 {
-  height: 100vh;
+  height: 200vh;
 }
 
 .txt3 {
@@ -61,11 +78,11 @@ p {
 }
 
 .txt4 {
-  height: 100vh;
+  height: 200vh;
 }
 
 .txt5 {
-  height: 100vh;
+  height: 200vh;
 }
 
 .txt6 {
