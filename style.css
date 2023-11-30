@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+#app {
+  margin-top:50dvh !important;
+  margin-top:50vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50dvh !important;
+  height: 50vh;
+  display: block;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.controls {
+  display: block;
+  position:relative;
+}
+
+.txt1 {
+  height: 1000px;
+  background: #f0f0f0;
+}
+
+.txt2 {
+  height: 100vh;
+  background: #f0f0f0;
+}
+
+.txt3 {
+  height: 1000vh;
+    background: #f0f0f0;
+  }
+
+
+/* Remove scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
