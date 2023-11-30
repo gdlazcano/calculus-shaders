@@ -179,8 +179,6 @@ ScrollTrigger.create({
   trigger: ".txt2",
   start: boundaries,
   end: "bottom bottom",
-  pin: true,
-  // markers: true,
   onEnter: () => {
     gsap.to(camera.rotation, {
       duration: 1,
@@ -218,8 +216,6 @@ ScrollTrigger.create({
   trigger: ".txt3",
   start: boundaries,
   end: "bottom bottom",
-  // markers: true,
-  pin: true,
   onEnter: () => {
     gsap.to(camera.rotation, {
       duration: 1,
@@ -268,8 +264,6 @@ ScrollTrigger.create({
   trigger: ".txt4",
   start: boundaries,
   end: "bottom bottom",
-  // markers: true,
-  pin: true,
   onEnter: () => {
     mesh.material = material;
 
@@ -311,8 +305,6 @@ ScrollTrigger.create({
   trigger: ".txt5",
   start: boundaries,
   end: "bottom bottom",
-  // markers: true,
-  pin: true,
   onEnter: () => {
     mesh.material = marioMaterial;
   },
@@ -325,8 +317,6 @@ ScrollTrigger.create({
   trigger: ".txt6",
   start: boundaries,
   end: "bottom bottom",
-  // markers: true,
-  pin: true,
   onEnter: () => {
     scene.remove(mesh);
     gsap.to(camera.rotation, {
