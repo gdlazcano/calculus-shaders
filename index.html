@@ -11,234 +11,170 @@
     <div id="app">
       <div class="controls">
         <div class="txt1">
-          <h1>Bienvenidos</h1>
+          <img src="qrcode.png" class="half"/>
+          <h1>Introducción a GLSL y Shaders en el Contexto del Cálculo Vectorial</h1>
+          <h2>Por: Gabriel David Lazcano Gonzalez</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            GLSL (OpenGL Shading Language) es un poderoso lenguaje de programación utilizado para crear shaders,
+            esos módulos de software que definen cómo se procesan los gráficos en una tarjeta de video.
+            Estos shaders son piezas clave en el campo de los gráficos por ordenador,
+            controlando desde la apariencia de los objetos hasta la generación de efectos visuales realistas.
           </p>
+          <h3>Pipeline Gráfico</h3>
+          <img src="pipeline.jpg" class="half"/>
+          <div>
+          <h2>Vertex Shader</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            Su función principal es transformar las coordenadas de los vértices de un modelo tridimensional 
+            (como un objeto en un videojuego) desde su posición en el espacio 3D al espacio 2D de la pantalla.
           </p>
+          <h3>Transformaciones</h3>
+          <h4>ModelViewMatrix (Matriz de vista de modelo)</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            Controla la posición y orientación de los objetos en relación con la cámara.
           </p>
+          <h4>ProjectionMatrix (Matriz de proyección)</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            Controla la forma en que se proyecta la escena en la pantalla.
+            <br>
+            <b>Proyección Perspectiva</b>: Simula la manera en que los objetos más lejanos parecen más pequeños que los objetos cercanos, dando la ilusión de profundidad y perspectiva.
+              <br>
+<b>Proyección Ortográfica</b>: Mantiene el tamaño de los objetos independientemente de su distancia, lo que puede ser útil en representaciones técnicas o planos sin necesidad de profundidad visual.
           </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
+          <img src="projection.png"/>
+          <img src="ortografica.png"/>
+
+          <a href="https://www.mauriciopoppe.com/notes/computer-graphics/viewing/projection-transform/">Desarrollo de las transformaciones</a>
+          </div>
+          <div>
+          <h2>Fragment Shader</h2>
+           <p>
+              Su función principal es calcular el color de cada fragmento (píxel) de la pantalla. 
+              A este proceso se le conoce como rasterización. Este es el último paso del pipeline gráfico.
+            </p>
+            <img src="rasterizacion.png"/>
+          </div> 
         </div>
         <div class="txt2">
-          <h2>Este es un proyecto de prueba</h2>
+          <h2>¿Cómo trabajar con shaders?</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            Entender que <b>no es como en la programación tradicional</b>, donde se ejecuta una instrucción tras otra
+            y se espera un resultado. En el caso de los shaders, se ejecuta una vez por cada vértice del modelo
+            y se espera que se ejecute <b>en paralelo</b>.
           </p>
+          <img src="code1.png"/>
+          <p class="center">El orden de las transformaciones si importa</p>
+          <img src="code2.png"/>
+          <h3>¿Qué podemos representar?</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            Podemos representar cualquier cosa que se pueda expresar matemáticamente. Desde una simple línea
+            hasta una compleja escena 3D. 
           </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+          <br>
+          <p class="codepen" data-height="600" data-default-tab="result" data-slug-hash="dyNLREq" data-user="shubniggurath" style="box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/shubniggurath/pen/dyNLREq">
+            Firefly flow</a> by Liam Egan (<a href="https://codepen.io/shubniggurath">@shubniggurath</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
           </p>
         </div>
         <div class="txt3">
-          <h3>Espero que les guste</h3>
+          <h3>sen(x^2 + y^2)</h3>
+          <img src="geogebra.png"/>
+          <h4>Código</h4>
+          <img src="code3.png"/>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            En este código estamos obteniendo la posición de cada vértice
           </p>
+          <br />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            Ya que no podemos modificar directamente la posición de los vértices,
+            creamos una variable uniforme que nos permita modificar la posición de los vértices.
+            Y modificamos el valor de z conforme a la función.
+          </p> 
+          <br />
+          <br />
+          <p>
+            La función también es dependiente de una variable de tiempo. Y modificamos su amplitud y frecuencia 
+            con constantes.
           </p>
+          <h4>Agreguemos color</h4>
+          <img src="code2.png"/>  
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            El resultado es una superficie que se asemeja a una colina con picos y valles.
+            Que cambia con respecto al tiempo. Solo que esta completamente blanca.
           </p>
+          <h4>¿Por qué?</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            Porque no estamos modificando el color de los vértices, solo estamos modificando la posición de los vértices.
+            Y no tiene sentido en la vida real ya que no hay sombras ni iluminación.
           </p>
         </div>
         <div class="txt4">
-          <h4>Gracias por su visita</h4>
+          <h3>Calculando iluminación</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            Para calcular la iluminación de un objeto necesitamos conocer la posición de la luz, la posición de la cámara,
+            la posición del objeto y la normal del objeto.
           </p>
+          <h4>Tipos de iluminación</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            <b>Ambiental</b>: Iluminación que no depende de la posición de la luz.
+            <br>
+            <b>Difusa</b>: Iluminación que depende de la posición de la luz.
+            <br>
+            <b>Especular</b>: Iluminación que depende de la posición de la luz y la posición de la cámara.
           </p>
+          <img src="light.png"/>
+          <h4>Normal</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            La normal es un vector perpendicular a la superficie del objeto.
+            <br>
+            <b>¿Cómo calcular la normal?</b>
+            <br>
+            <br>
+            La normal se puede calcular con el producto cruz de dos vectores que pertenecen a la superficie del objeto.
+            Que son las derivadas parciales de la función.
+            <br>
+            <br>
+            Varias librerias nos proporcionan los vectores normales a cada vértice. Y funciones para calcular
+            las derivadas parciales de una función.
           </p>
         </div>
         <div class="txt5">
-          <h5>Bye</h5>
+          <img src="code4.png"/>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            Las derivadas parciales de la función son conocidas.
           </p>
+          <img src="code5.png"/>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+            O podemos calcularlas con una función.
+            PD: dF/dx() y dF/dy() únicamente se pueden usar dentro del fragment shader.
           </p>
         </div>
         <div class="txt6">
-          <h6>Bye</h6>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, quibusdam, voluptates, quia quos voluptate quod
-            voluptatibus quas doloribus quidem quae. Quisquam voluptatum,
-            quibusdam, voluptates, quia quos voluptate quod voluptatibus quas
-            doloribus quidem quae.
+          <h3>¿Qué podemos hacer después?</h3>
+          <ul>
+           <li>Podemos agregar texturas, sombras, reflejos, refracciones, etc.</li> 
+            <li>Podemos hacer una suma de funciones seno para crear un efecto más complejo</li>
+            <li>Podemos agregar más parámetros a la función</li>
+            <li>Usar otras figuras como: esferas, toroides, cilindros, etc.</li>
+          </ul>
+          <br>
+          <br>
+          <p class="codepen" data-height="600" data-default-tab="result" data-slug-hash="pwwGJE" data-user="nicodotcomputer" style="height: 600px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/nicodotcomputer/pen/pwwGJE">
+  WebGL particles + noise displacement</a> by Nicolas Garnier (<a href="https://codepen.io/nicodotcomputer">@nicodotcomputer</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+          <br>
+          <br>
+          <p class="codepen" data-height="600" data-default-tab="result" data-slug-hash="zYBLVKb" data-user="lila1984" style="height: 600px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/lila1984/pen/zYBLVKb">
+            Iridescent morphing blob </a> by LILA (<a href="https://codepen.io/lila1984">@lila1984</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
           </p>
         </div>
     </div>
     <script type="module" src="/main.js"></script>
+    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
   </body>
 </html>

@@ -7,15 +7,19 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #app {
-  margin-top:50dvh !important;
-  margin-top:50vh;
+  margin-top: 50dvh !important;
+  margin-top: 50vh;
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 0px;
+}
+
+.controls {
   padding: 10px;
 }
 
@@ -31,49 +35,89 @@ body {
   z-index: 1;
 }
 
-@media (min-width: 1280px) {
-  #canvas {
-    width:50vw !important;
-    height: 100dvh !important;
-    height: 100vh;
-  }
-
-    #app {
-      width:50vw !important;
-      height: 100dvh !important;
-      height: 100vh;
-      margin-top:0 !important;
-      margin-left:50vw !important; 
-    }
-}
-
-h1 {
-  font-size: 5rem;
+.center {
+  display: block;
+  margin: 0 auto;
   text-align: center;
 }
 
-h2 {
-  font-size: 4rem;
+img {
+  display: block;
+  margin: 20px auto;
+  width: 80%;
+}
+
+a {
+  display: block;
   text-align: center;
 }
 
-h3 {
-  font-size: 3rem;
-  text-align: center;
+.half {
+  width: 40%;
 }
 
-h4 {
-  font-size: 2rem;
+h1, h2, h3, h4 {
   text-align: center;
 }
 
 p {
-  font-size: 2rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1280px) {
+  #canvas {
+    width: 50vw !important;
+    height: 100dvh !important;
+    height: 100vh;
+  }
+
+  ul {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  ul li {
+    font-size: 2rem;
+  }
+
+  #app {
+    width: 50vw !important;
+    height: 100dvh !important;
+    height: 100vh;
+    margin-top: 0 !important;
+    margin-left: 50vw !important;
+  }
+
+  h1 {
+    font-size: 5rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  h4 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 2rem;
+  }
 }
 
 .controls {
   display: block;
-  position:relative;
+  position: relative;
 }
 
 /* Remove scrollbar */

@@ -41,12 +41,7 @@ void main() {
   // xTangent.z = 2.0 * vPosition.x * cos(pow(vPosition.x, 2.0) + pow(vPosition.y, 2.0) + uTime * 0.1) * 0.4;
   // yTangent.z = 2.0 * vPosition.y * cos(pow(vPosition.x, 2.0) + pow(vPosition.y, 2.0) + uTime * 0.1) * 0.4;
 
-  // Modo 2 central difference method
-  // float eps = 0.01; // Small epsilon value
-  // vec3 xTangent = vec3(eps, 0.0, vPosition.z) - vec3(0.0, 0.0, vPosition.z);
-  // vec3 yTangent = vec3(0.0, eps, vPosition.z) - vec3(0.0, 0.0, vPosition.z);
-  // vNormal = normalize(cross(xTangent, yTangent));
-
+  // Modo 2 vectores normales proporcionados por libreria
   vNormal = normal;
 
   gl_Position = projectionMatrix * modelViewMatrix * vec4(vPosition, 1.0);
@@ -60,8 +55,6 @@ varying vec3 vNormal;
 
 void main() {
   vec3 light = vec3(-7.0, -7.0, 7.0);
-  // mover la luz en el tiempo en forma de circulo
-  
   vec3 distanceFromEveryPointToLight = normalize(light - vPosition); 
 
   // Modo 3 calcular las derivadas parciales y normalizar el producto cruz por cada fragmento
@@ -173,7 +166,7 @@ gsap.registerPlugin(ScrollTrigger);
 let capybara;
 let capybaraMaterial = new THREE.MeshPhysicalMaterial({ color: 0xbf743d });
 
-const boundaries = window.innerWidth >= 1280 ? "top top" : "top center";
+const boundaries = window.innerWidth >= 1280 ? "top center" : "top top";
 
 ScrollTrigger.create({
   trigger: ".txt2",
